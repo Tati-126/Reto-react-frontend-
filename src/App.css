@@ -1,0 +1,262 @@
+/* Variables de colores principales */
+:root {
+  --color-primary-dark: #111315;  
+  --color-secondary-dark: #1b1d1f; 
+  --color-text-light: #fef7ee; 
+  --color-text-gray: #6f757c; 
+  --color-accent-yellow: #f6c768;
+  --color-accent-teal: #b0e0e6;
+  --color-button-active: var(--color-text-light); 
+  --color-button-hover: #ffffff1a; 
+}
+
+/* Fondo general del body con imagen */
+body {
+    background-color: var(--color-primary-dark);
+    background-image: url('./assets/images/bg-cafe.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 400px;
+    background-position: top center;
+    background-attachment: local; 
+    min-height: 100vh;
+}
+
+/* Fondo para pantallas pequeñas */
+@media (max-width: 768px) {
+  body {
+    background-image: url('./assets/images/bg-cafe-sm.jpg');
+    background-size: 100% 300px; 
+  }
+}
+
+/* Centra el contenido principal */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 0;
+  min-height: 100vh;
+}
+
+/* Contenedor principal de la lista de cafés */
+.coffee-listing-container {
+  background-color: var(--color-secondary-dark);
+  border-radius: 15px;
+  max-width: 900px;
+  width: 90%;
+  padding: 50px 70px;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Estilos del encabezado */
+.header-container h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-text-light);
+}
+
+.header-vector {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+}
+
+.header-container p {
+  color: var(--color-text-gray);
+  max-width: 600px;
+  margin: 30px auto 40px;
+  line-height: 1.5;
+}
+
+/* Botones de filtro */
+.filter-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+  margin-bottom: 70px;
+}
+
+.filter-button {
+  background: none;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: var(--color-text-light);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.filter-button.active {
+  background-color: var(--color-button-active);
+  color: var(--color-primary-dark);
+  font-weight: bold;
+}
+.filter-button:not(.active):hover {
+    background-color: var(--color-button-hover);
+}
+
+/* Grid de tarjetas de café */
+.coffee-grid {
+  display: grid;
+  gap: 80px 30px;
+  padding: 20px 0;
+  grid-template-columns: repeat(3, 1fr); 
+}
+
+/* Grid responsivo */
+@media (max-width: 950px) {
+    .coffee-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 20px;
+    }
+}
+
+/* Tarjeta individual de café */
+.coffee-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Imagen del café */
+.image-wrapper {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.coffee-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Etiquetas de popular y agotado */
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.popular-tag {
+  background-color: var(--color-accent-yellow); 
+  color: var(--color-primary-dark);
+}
+
+.sold-out-tag {
+  color: #ff0000;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* Texto de agotado */
+.sold-out-text {
+  color: #ed7359;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Fila de información de café */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.coffee-name {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+/* Precio del café - color de fondo cambiado a #BEE3CC */
+.coffee-price {
+  background-color: #BEE3CC; /* Color cambiado */
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--color-primary-dark);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Fila de rating */
+.rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.star-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.rating-value {
+  color: var(--color-text-light);
+  font-weight: bold;
+}
+
+.votes-count,
+.no-ratings-text {
+  color: var(--color-text-gray);
+  font-size: 0.9rem;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 600px) {
+  .coffee-listing-container {
+    padding: 30px 20px;
+  }
+
+  .header-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .coffee-grid {
+    grid-template-columns: 1fr;
+    gap: 30px 0;
+    padding: 10px 0;
+  }
+
+  .coffee-card {
+    padding: 0 10px;
+  }
+}
+
+/* Error State Styles */
+.error-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  grid-column: 1 / -1;
+  min-height: 300px;
+}
+
+.error-message {
+  color: #ed7359;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.5;
+}
