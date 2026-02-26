@@ -19,16 +19,6 @@ Una aplicación de listado de café construida con **React 19** y **Vite** que c
 - **Fallback con datos locales** si la API falla
 - Manejo de errores implementado
 
-### Arquitectura de Componentes
-| Componente | Descripción | Props |
-|-----------|-------------|-------|
-| **CoffeeCard** | Tarjeta individual de café reutilizable | `coffee` (objeto con datos) |
-| **CoffeeListing** | Contenedor principal, mapea datos | - |
-| **FilterButtons** | Botones de filtro (Todos/Disponibles) | `currentFilter`, `onFilterChange` |
-| **Header** | Encabezado con descripción | - |
-| **SkeletonCard** | Estado de carga | - |
-| **EmptyState** | Sin resultados después del filtro | - |
-
 ### Estado y Lógica
 - **Lifting State Up** - El estado del filtro está en `CoffeeListing` y se pasa a componentes hijos
 -**Botones de estado** - Click en botones cambia el estado del filtro globalmente
@@ -92,17 +82,4 @@ npm run build
 - IVAN ARAGON
 
 
-
-## Conceptos Aprendidos
-
-1. **Vite vs CRA** - Vite es más rápido y moderno
-2. **Componentes Funcionales** - Toda la app usa componentes con Hooks
-3. **Props** - Paso de datos de padres a hijos
-4. **Estado (useState)** - Gestión de estado local y global
-5. **Efectos (useEffect)** - Llamadas a API, efectos secundarios
-6. **Renderizado Condicional** - Mostrar diferentes elementos según estado
-7. **Listas y Keys** - `.map()` con keys únicas
-8. **Lifting State Up** - Elevar estado para compartir entre componentes
-9. **CSS Responsive** - Media queries para adaptabilidad
-10. **Shimmer Loading** - Animaciones con CSS
 <img width="1898" height="770" alt="image" src="https://github.com/user-attachments/assets/8f56a6d0-56fc-4f2d-b640-b8b5abdadee9" />
